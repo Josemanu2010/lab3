@@ -1,0 +1,36 @@
+
+
+EJERCICIO INTERCEPTORS - REDUX
+------------------------------
+
+Utilizando los conceptos aprendidos sobre los interceptors de AXIOS:
+
+Crear un usuario y consultarlo utilizando los end-point de la API "https://reqres.in/api"
+
+1. Para crear el usuario es necesario obtener el token con el end-point:
+
+	const rta = await iAX.post(
+		"https://reqres.in/api/login", {
+			email: "eve.holt@reqres.in",
+			password: "cityslicka",
+		}
+	  ) ;
+
+2. Con el token retornado por el end-point, crear un usuario adicionando el header de autorización:
+
+	config.headers['Authorization'] = 'Bearer <token>' ;
+	
+	2.1. El end point y la data es:
+	
+		const rta = await iAX.post(
+            "https://reqres.in/api/users", {
+                name: "RAGAR",
+                job:  "FS-G262"
+            }
+          ) ;
+
+3. Como respuesta a la creación del usuario, el end-point retorna el id (identificador único).
+
+4. Consultar el usuario creado utilizando el end-point: 
+
+	const rta = await iAX.get(`https://reqres.in/api/users/${id}` ) ;
